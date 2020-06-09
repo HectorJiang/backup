@@ -1,0 +1,393 @@
+{% extends 'admin/base.html' %}
+{% block aside %}
+<ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>主页</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> 系统首页</a></li>
+            <!-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
+          </ul>
+        </li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-user"></i>
+            <span>用户管理</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>用户列表</a></li>
+            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> 黑名单用户</a></li>
+            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> 黑名单ip</a></li>
+            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> 用户敏感词</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-secret"></i>
+            <span>管理员管理</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/mailbox/mailbox.html"><i class="fa fa-circle-o"></i> 管理员列表</a></li>
+            <li><a href="pages/admin/role.html"><i class="fa fa-circle-o"></i>角色管理</a></li>
+            <li><a href="pages/admin/authority.html"><i class="fa fa-circle-o"></i> 权限管理</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pencil"></i>
+            <span>社区管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../article/article_list.html"><i class="fa fa-circle-o"></i> 文章管理</a></li>
+            <li><a href="../article/article_tag.html"><i class="fa fa-circle-o"></i> 文章标签管理</a></li>
+            <li><a href="../article/article_filter.html"><i class="fa fa-circle-o"></i>过滤词库</a></li>
+            <li><a href="../article/article_picture_verify.html"><i class="fa fa-circle-o"></i>图片审核</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-commenting-o"></i>
+            <span>评论管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../article/article_list.html"><i class="fa fa-circle-o"></i> 评论管理</a></li>
+            <li><a href="../article/article_filter.html"><i class="fa fa-circle-o"></i>过滤词库</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-picture-o"></i>
+            <span>轮播图管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../article/article_list.html"><i class="fa fa-circle-o"></i> 轮播图列表</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-adn"></i> <span>广告管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> 广告列表</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bell"></i>
+            <span>通知管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>未读消息</a></li>
+            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>已读消息</a></li>
+            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>全部消息</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cog"></i> <span>系统设置</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+          </ul>
+        </li>
+
+
+
+      </ul>
+{% endblock aside %}
+
+
+{% block content %}
+<div class="content-wrapper">
+    <section class="content">
+      <!-- 顶部面包屑导航 -->
+      <ol class="breadcrumb">
+        <li><a href="../../index.html">主页</a></li>
+        <li class="active">用户列表</li>
+      </ol>
+
+      <!--  -->
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+                <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i> 批量删除</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> 添加
+                </button>
+
+                <!-- 添加Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+                      </div>
+                      <div class="modal-body">
+
+                         <form class="form-horizontal">
+                          <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-10">
+                              <input type="email" class="form-control" id="inputEmail3" placeholder="用户名">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="inputPassword3" placeholder="密码">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="select2" class="col-sm-2 control-label">角色</label>
+                            <div class="col-sm-10">
+                              <select class="form-control select2" multiple="multiple" data-placeholder="选择一个角色"
+                                      style="width: 100%;" id="select2">
+                                <option>用户</option>
+                                <option>管理员</option>
+                                <option>老师</option>
+                              </select>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">保存</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+        </div>
+        <div class="panel-body">
+          <div class="container">
+            <div class="row">
+              <form>
+              <div class="col-md-6">
+               <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="reservation">
+                </div>
+                <!-- /.input group -->
+              </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="请输入用户名">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">搜索用户</button>
+                        </span>
+                    </div><!-- /input-group -->
+                  </div>
+              </div>
+            </form>
+            </div>
+
+        </div>
+
+        <!-- Table -->
+                <table id="example1" class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>
+                           <input type="checkbox" class="checkbox-toggle">
+                      </th>
+                      <th>编号</th>
+                      <th>用户名</th>
+                      <th>标签</th>
+                      <th>状态</th>
+                      <th>综合评分</th>
+                      <th>操作</th>
+                    </tr>
+                 </thead>
+                  <tbody>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td><a href="user_info.html">Alexander Pierce</a></td>
+                    <td><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">正常</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">已上架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">已上架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">已上架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">已上架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+                                    <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">已上架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213fdasfa</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexfsdafasanderfasdfa Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">已上架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-default">已下架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1213</td>
+                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><span class="label label-success">生活</span> <span class="label label-success">科技</span>
+                    </td>
+                    <td><span class="label label-info">已上架</span></td>
+                    <td class="mailbox-date">5.0</td>
+                    <td><button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger">删除</button></td>
+                  </tr>
+
+                  </tbody>
+                </table>
+
+<!--                 <nav aria-label="..." class="pull-right">
+                  <ul class="pagination">
+                      <li><a href="#">&laquo;</a></li>
+                      <li class="active"><a href="#">1</a></li>
+                      <li class="disabled"><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </nav> -->
+      </div>
+    </section>
+</div>
+{% endblock content %}
+
+
+
+{% block style %}
+<!-- Select2 -->
+<script src="{{url_for('static',filename='bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<!-- InputMask -->
+<script src="{{url_for('static',filename='plugins/input-mask/jquery.inputmask.js')}}"></script>
+<script src="{{url_for('static',filename='plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
+<script src="{{url_for('static',filename='plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
+<!-- date-range-picker -->
+<script src="{{url_for('static',filename='bower_components/moment/min/moment.min.js')}}"></script>
+<script src="{{url_for('static',filename='bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{url_for('static',filename='bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<!-- iCheck 1.0.1 -->
+<script src="{{url_for('static',filename='plugins/iCheck/icheck.min.js')}}"></script>
+<script src="{{url_for('static',filename='dist/js/demo.js')}}"></script>
+<!-- DataTables -->
+<script src="{{url_for('static',filename='bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{url_for('static',filename='bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<!-- Page script -->
+
+<script>
+  $(function () {
+     $('.select2').select2()
+    //Date range picker
+    $('#reservation').daterangepicker()
+    $('#example1').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : false,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+
+  });
+</script>
+{% endblock style %}
+

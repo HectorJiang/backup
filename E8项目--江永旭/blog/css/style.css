@@ -1,0 +1,39 @@
+body {
+	font-family:'Hiragino Sans GB','Microsoft Yahei',"WenQuanYi Micro Hei",SimSun,Tahoma,Arial,Helvetica,STHeiti;
+}
+textarea {
+	resize: none;
+}
+a:hover{
+	text-decoration: none;
+}
+.title {
+	padding-left: 30px;
+	float: left;
+}
+
+.body-container {
+	margin-bottom: 80px;
+}
+.page-header{
+	overflow: hidden;
+}
+.copyright {
+	background-color: #BDC3C7;
+	text-align: center;
+	padding: 20px;
+
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+nav.nav{
+	float: right;
+}
+nav.nav>a{
+	padding: 5px 15px;
+	line-height: 76px;
+	border-radius: 3px;
+	margin-left: 15px;
+	border: 1px solid #20a0ff;
+}

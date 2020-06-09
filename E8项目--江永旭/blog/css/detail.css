@@ -1,0 +1,27 @@
+.main{
+	width:60%;
+	padding-top:100px;
+	margin:0 auto;
+}
+.main>h1{
+	text-align:center;
+	color:#444;
+}
+.infor{
+	width:50%;
+	height:25px;
+	margin:10px auto;
+}
+.infor>span{
+	float:left;
+	margin-right:15px;
+	color:#888;
+	line-height:25px;
+	font-size:14px;
+}
+.content p{
+	min-height:550px;
+	text-indent:2em;
+	line-height:1.8em;
+	word-break:break-all
+}

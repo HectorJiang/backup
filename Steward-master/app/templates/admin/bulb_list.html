@@ -1,0 +1,278 @@
+{% extends 'admin/base.html' %}
+{% block aside %}
+<ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-home"></i> <span>主页</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url_for('admin.index')}}"><i class="fa fa-circle-o"></i> 系统首页</a></li>
+            <li class="active"><a href="{{url_for('admin.bulb_list')}}"><i class="fa fa-circle-o"></i> 灯泡管理</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> 使用日志</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> 权限管理</a></li>
+            <li ><a href=""><i class="fa fa-circle-o"></i> 系统设置</a></li>
+            <!-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
+          </ul>
+        </li>
+      </ul>
+{% endblock aside %}
+
+
+{% block content %}
+<div class="content-wrapper">
+            {% for err in form.name.errors %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> {{err}}
+    </div>
+            {% endfor %}
+
+            {% for err in form.info.errors %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> {{err}}
+    </div>
+            {% endfor %}
+
+            {% for err in form.ele_use.errors %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> {{err}}
+    </div>
+            {% endfor %}
+
+            {% for err in form.image.errors %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> {{err}}
+    </div>
+            {% endfor %}
+
+    <section class="content">
+      <!-- 顶部面包屑导航 -->
+      <ol class="breadcrumb">
+        <li><a href="{{url_for('admin.index')}}">主页</a></li>
+        <li class="active">灯泡管理</li>
+      </ol>
+
+      <!--  -->
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+                <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i> 批量删除</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> 添加
+                </button>
+
+                <!-- 添加Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">添加灯泡</h4>
+                      </div>
+                         <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                      <div class="modal-body">
+
+                          <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">名称</label>
+                            <div class="col-sm-10">
+                              {{form.name}}
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="info" class="col-sm-2 control-label">简介</label>
+                            <div class="col-sm-10">
+                                {{form.info}}
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="ele_use" class="col-sm-2 control-label">功耗</label>
+                            <div class="col-sm-10">
+                                {{form.ele_use}}
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="image" class="col-sm-2 control-label">图片</label>
+                            <div class="col-sm-10">
+                              <!--{{form.image}}-->
+                                <input type="file" id="image" name="image">
+                            </div>
+                          </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            {{ form.csrf_token }}
+                            {{ form.submit }}
+                      </div>
+                    </div>
+                         </form>
+
+                  </div>
+                </div>
+
+
+        </div>
+        <div class="panel-body">
+          <div class="container">
+            <div class="row">
+              <form>
+              <div class="col-md-6">
+               <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="reservation">
+                </div>
+                <!-- /.input group -->
+              </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="请输入名称">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">搜索</button>
+                        </span>
+                    </div><!-- /input-group -->
+                  </div>
+              </div>
+            </form>
+            </div>
+
+        </div>
+
+        <!-- Table -->
+                <table id="example1" class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>
+                           <input type="checkbox" class="checkbox-toggle">
+                      </th>
+                      <th>编号</th>
+                      <th>名称</th>
+                      <th>图片</th>
+                      <th>状态</th>
+                      <th>开关</th>
+                      <th>操作</th>
+                    </tr>
+                 </thead>
+                  <tbody>
+                  {% for bulb in bulb_list%}
+                  <tr>
+                    <td><input type="checkbox"></td>
+                    <td>{{bulb.id}}</td>
+                    <td><a href="{{url_for('admin.bulb_info')}}?id={{bulb.id}}">{{bulb.name}}</a></td>
+                    <td><img src="{{bulb.image}}" alt="" style="height: 100px;width:150px;"></td>
+                    <td><span class="label label-info">正常</span></td>
+                      <td>
+                          <div class="switch switch-large">
+                                <input type="checkbox" name="my-checkbox" id="{{bulb.id}}" checked/>
+                          </div>
+                      </td>
+                      <td>
+                            <a href="{{url_for('admin.bulb_edit')}}?id={{bulb.id}}"> <button type="button" class="btn btn-warning">设置</button></a>
+                            <a href="{{url_for('admin.bulb_del')}}?id={{bulb.id}}"> <button type="button" class="btn btn-danger">删除</button></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+
+<!--                 <nav aria-label="..." class="pull-right">
+                  <ul class="pagination">
+                      <li><a href="#">&laquo;</a></li>
+                      <li class="active"><a href="#">1</a></li>
+                      <li class="disabled"><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </nav> -->
+      </div>
+    </section>
+</div>
+{% endblock content %}
+
+
+
+{% block style %}
+<!-- Select2 -->
+<script src="{{url_for('static',filename='bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<!-- InputMask -->
+<script src="{{url_for('static',filename='plugins/input-mask/jquery.inputmask.js')}}"></script>
+<script src="{{url_for('static',filename='plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
+<script src="{{url_for('static',filename='plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
+<!-- date-range-picker -->
+<script src="{{url_for('static',filename='bower_components/moment/min/moment.min.js')}}"></script>
+<script src="{{url_for('static',filename='bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{url_for('static',filename='bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<!--&lt;!&ndash; iCheck 1.0.1 &ndash;&gt;-->
+<!--<script src="{{url_for('static',filename='plugins/iCheck/icheck.min.js')}}"></script>-->
+<!--<script src="{{url_for('static',filename='dist/js/demo.js')}}"></script>-->
+<!-- DataTables -->
+<script src="{{url_for('static',filename='bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{url_for('static',filename='bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<!-- Page script -->
+
+<script>
+  $(function () {
+     $('.select2').select2();
+    //Date range picker
+    $('#reservation').daterangepicker();
+    $('#example1').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : false,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : false
+    });
+
+    $('[name="my-checkbox"]').bootstrapSwitch({
+onSwitchChange:function(event,state){
+    var bulb_id = event.target.id;
+    if(state==true){
+        // alert(bulb_id+'打开');
+        $.ajax({
+            url:"{{ url_for('admin.ajax') }}",
+            type:"post",
+            data:{"state":bulb_id+"y"},
+            dataType: 'json',
+            success:function(data){
+                // alert(data)
+            },
+            error:function(e){
+            }
+        })
+    }
+   if(state==false){
+        // alert(bulb_id+'已关闭');
+        $.ajax({
+            url:"{{ url_for('admin.ajax') }}",
+            type:"post",
+            data:{"state":bulb_id+"n"},
+            dataType: 'json',
+            success:function(data){
+                // alert(data)
+            },
+            error:function(e){
+            }
+        })
+    }
+}
+
+     })
+
+
+
+  });
+</script>
+{% endblock style %}
+

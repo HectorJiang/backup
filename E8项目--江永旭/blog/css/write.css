@@ -1,0 +1,41 @@
+.main{
+	overflow:hidden;
+	padding-top:100px;
+	width:60%;
+	margin:0 auto;
+}
+.main .title,
+.main textarea{
+	width:100%;
+	line-height:40px;
+	padding-left:10px;
+	font-size:25px;
+	font-weight:bold;
+	border:none;
+	outline:none;
+	border-bottom:1px dashed #aaa;
+}
+.main textarea{
+	min-height:400px;
+	margin:5px 0;
+	font-size:16px;
+	font-weight:normal;
+	border-bottom:none;
+}
+.submitBtn{
+	border:none;
+	outline:none;
+	border-bottom:none;
+	width:30%;
+	height:40px;
+	cursor:pointer;
+	margin:20px auto;
+	display:block;
+	font-weight:normal;
+	font-size:16px;
+	background:#20A0FF;
+	color:white;
+}
+.submitBtn:hover{
+	background: #1D8CE0;
+}
